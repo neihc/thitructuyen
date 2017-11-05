@@ -20,3 +20,10 @@
 @import "gentelella/production/css/maps/jquery-jvectormap-2.0.3";
 @import "gentelella/vendors/animate.css/animate.min";
 @import "gentelella/vendors/switchery/dist/switchery.min";
+@import "gentelella/build/css/custom.css";
+
+.container.body {
+  margin: 0px;
+  width: 100%;
+  padding: 0px;
+}

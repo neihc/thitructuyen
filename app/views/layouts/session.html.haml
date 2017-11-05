@@ -6,4 +6,8 @@
     = stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'sessions', 'data-turbolinks-track': 'reload'
   %body.login
+    .flash-messages
+      - flash.each do |name, msg|
+        .alert.text-center{ class:  "alert-#{ name }"}
+          = msg
     = yield
