@@ -1,0 +1,27 @@
+- provide(:title, "Log in")
+%div
+  %a#signin.hiddenanchor
+  .login_wrapper
+    .animate.form.login_form
+      %section.login_content
+        = form_for(:session, url: admin_login_path) do |f|
+          %h1 Login Form
+          %div
+            = f.email_field :email, class: "form-control"
+          %div
+            = f.password_field :password, class: "form-control"
+          %div
+            = f.submit "Log in", class: "btn btn-default submit"
+            %a.reset_pass{:href => "#"} Lost your password?
+          .clearfix
+          .separator
+            %p.change_link
+              New to site?
+            .clearfix
+            %br/
+            %div
+              %h1
+                %i.fa.fa-paw
+                Project ThiTrucTuyen
+              %p ©2017 All Rights Reserved
+
