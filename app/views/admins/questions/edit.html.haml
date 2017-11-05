@@ -1,12 +1,12 @@
 .page-title
   .title_left
-    %h3 Create Question
+    %h3 Update Question
 .row
   .col-md-12.col-sm-12.col-xs-12
     .x_panel
       .x_title
       .x_content
-        = form_for @question, url: admins_questions_path do |question|
+        = form_for @question, url: admins_question_path(@question) do |question|
           = question.label :description
           = question.text_area :description, class: "form-control", rows: "5"
           .x_panel
@@ -21,4 +21,4 @@
                     %label
                       = answer.check_box :is_correct, {}, true, false
                       is correct
-          = question.submit "Create", class: "btn btn-primary"
+          = question.submit "Update", class: "btn btn-primary"
