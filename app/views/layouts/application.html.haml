@@ -5,6 +5,14 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = render "shared/header" 
-    = yield
+  %body.nav-md
+    .flash-messages
+      - flash.each do |name, msg|
+        .alert.text-center{ class:  "alert-#{ name }"}
+          = msg
+    .container.body
+      .main_container
+        = render "shared/header"
+        .right_col{ role: "main" }
+          = yield
+  = javascript_include_tag "custom"

@@ -8,7 +8,6 @@ class Admins::SessionsController < ApplicationController
   def create
     admin = Admin.find_by(email: params[:session][:email].downcase)
     if admin.present? &&  admin.authenticate(params[:session][:password])
-      byebug
       admin_log_in admin
       flash[:success] = "Đăng nhập thành công"
       redirect_to admin_path
