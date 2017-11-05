@@ -8,9 +8,9 @@
         = form_for(:session, url: login_path) do |f|
           %h1 Login Form
           %div
-            = f.email_field :email, class: "form-control"
+            = f.email_field :email, class: "form-control", placeholder: "Email"
           %div
-            = f.password_field :password, class: "form-control"
+            = f.password_field :password, class: "form-control", placeholder: "Password"
           %div
             = f.submit "Log in", class: "btn btn-default submit"
             %a.reset_pass{:href => "#"} Lost your password?
@@ -28,16 +28,18 @@
               %p ©2017 All Rights Reserved
     #register.animate.form.registration_form
       %section.login_content
-        %form
+        = form_for(@user, url: users_path) do |f|
           %h1 Create Account
           %div
-            %input.form-control{:placeholder => "Username", :required => "", :type => "text"}/
+            = f.text_field :fullname, class: "form-control", placeholder: "Full name"
           %div
-            %input.form-control{:placeholder => "Email", :required => "", :type => "email"}/
+            = f.email_field :email, class: "form-control", placeholder: "Email"
           %div
-            %input.form-control{:placeholder => "Password", :required => "", :type => "password"}/
+            = f.password_field :password, class: "form-control", placeholder: "Password"
           %div
-            %a.btn.btn-default.submit{:href => "index.html"} Submit
+            = f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation"
+          %div
+            = f.submit "Sign Up", class: "btn btn-default submit"
           .clearfix
           .separator
             %p.change_link
