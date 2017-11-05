@@ -1,0 +1,11 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "gentelella/vendors/bootstrap/dist/css/bootstrap";
+@import "gentelella/vendors/font-awesome/css/font-awesome";
+@import "gentelella/vendors/iCheck/skins/flat/green";
+@import "gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4";
+@import "gentelella/production/css/maps/jquery-jvectormap-2.0.3";
+@import "gentelella/vendors/animate.css/animate.min";
+@import "gentelella/vendors/switchery/dist/switchery.min";
+@import "jquery.flexdatalist.min";

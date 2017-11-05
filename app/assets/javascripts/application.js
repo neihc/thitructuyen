@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require gentelella
-//= require gentelella-custom
+//= require "gentelella/vendors/bootstrap/dist/js/bootstrap"

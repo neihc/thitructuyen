@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem "bower-rails"
 gem "haml"
+gem "haml-rails"
 gem "config"
 
 group :development, :test do
