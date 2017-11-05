@@ -1,0 +1,55 @@
+.page-title
+  .title_left
+    %h3 #{ @exam.name }
+
+.clearfix
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4
+          Manage questions
+          = link_to "Add questions", new_admins_exam_question_path(exam_id: @exam.id), class: "btn btn-sm btn-primary pull-right"
+        .clearfix
+      .x_content
+        %table.table.table-striped
+          %tr
+            %th #
+            %th Content
+            %th Created at
+            %th Updated at
+            %th Action
+          - @questions.each do |question|
+            %tr
+              %td= question.id
+              %td= question.description
+              %td= question.created_at
+              %td= question.updated_at
+              %td
+                = link_to "Delete", admins_exam_question_path(exam_id: @exam.id, question_id: question.id), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-danger"
+        = will_paginate @questions
+
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4
+          Manage categoriess
+          = link_to "Add category", new_admins_exam_category_path(exam_id: @exam.id), class: "btn btn-sm btn-primary pull-right"
+        .clearfix
+      .x_content
+        %table.table.table-striped
+          %tr
+            %th #
+            %th Content
+            %th Created at
+            %th Updated at
+            %th Action
+          - @categories.each do |category|
+            %tr
+              %td= category.id
+              %td= category.name
+              %td= category.created_at
+              %td= category.updated_at
+              %td
+                = link_to "Delete", admins_exam_category_path(exam_id: @exam.id, category_id: category.id), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-danger"

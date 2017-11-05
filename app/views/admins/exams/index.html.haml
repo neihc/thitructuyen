@@ -1,0 +1,34 @@
+.page-title
+  .title_left
+    %h3 Exams Manager
+
+.clearfix
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4
+          List Exams
+          = link_to "New exam", new_admins_exam_path, class: "btn btn-sm btn-primary pull-right"
+        .clearfix
+      .x_content
+        %table.table.table-striped
+          %tr
+            %th #
+            %th Name
+            %th Created at
+            %th Updated at
+            %th Action
+          - @exams.each do |exam|
+            %tr
+              %td= exam.id
+              %td= exam.name
+              %td= exam.created_at
+              %td= exam.updated_at
+              %td
+                = link_to "Manage", admins_exam_path(exam), class: "btn btn-sm btn-default"
+                = link_to "Edit", edit_admins_exam_path(exam), class: "btn btn-sm btn-default"
+                = link_to "Delete", admins_exam_path(exam), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-danger"
+        = will_paginate @exam
+
+

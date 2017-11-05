@@ -31,7 +31,7 @@ class Admins::CategoriesController < ApplicationController
       redirect_to admins_categories_path
     else
       flash[:danger] = "Something went wrong!"
-      redirect_to new_admins_category_path(@category)
+      redirect_to edit_admins_category_path(@category)
     end
   end
 

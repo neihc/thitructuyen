@@ -1,0 +1,26 @@
+.page-title
+  .title_left
+    %h3 Exams Manager
+
+.clearfix
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4 Create Exam
+      .x_content
+        = form_for(@exam, url: admins_exams_path, html: { class: "form-horizontal form-label-left" }) do |f|
+          .form-group
+            = f.label :name, class: "control-label col-md-3 col-sm-3 col-xs-12"
+            .col-md-6.col-sm-6.col-xs-12
+              = f.text_field :name, class: "form-control col-md-7 col-xs-12"
+          .form-group
+            = f.label :description, class: "control-label col-md-3 col-sm-3 col-xs-12"
+            .col-md-6.col-sm-6.col-xs-12
+              = f.text_area :description, class: "form-control col-md-7 col-xs-12"
+          .ln_solid
+          .col-md-6.col-sm-6.col-xs-12.col-md-offset-3
+            = f.submit "Create", class: "btn btn-success"
+
+
+

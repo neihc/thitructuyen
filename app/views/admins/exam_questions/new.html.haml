@@ -1,0 +1,35 @@
+.page-title
+  .title_left
+    %h3 Add question
+
+.clearfix
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4
+          List Questions
+        .clearfix
+      .x_content
+        %table.table.table-striped
+          %tr
+            %th #
+            %th content
+            %th Created at
+            %th Updated at
+            %th Action
+          - @questions.each do |question|
+            %tr
+              %td= question.id
+              %td= question.description
+              %td= question.created_at
+              %td= question.updated_at
+              %td
+                = form_for(@exam_question, url: admins_exam_questions_path) do |f|
+                  = f.hidden_field :exam_id, value: @exam.id
+                  = f.hidden_field :question_id, value: question.id
+                  = f.submit "Add", class: "btn btn-sm btn-primary"
+        = will_paginate @questions
+
+
+
