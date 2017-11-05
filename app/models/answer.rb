@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
-  belongs_to :question
+  belongs_to :question, optional: true
   has_many :exam_results
 
   validates :content, presence: true
-  validates :is_correct, presence: true
+
 end

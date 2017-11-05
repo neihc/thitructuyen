@@ -1,0 +1,24 @@
+.page-title
+  .title_left
+    %h3 Create Question
+.row
+  .col-md-12.col-sm-12.col-xs-12
+    .x_panel
+      .x_title
+      .x_content
+        = form_for @question, url: admins_questions_path do |question|
+          = question.label :description
+          = question.text_area :description, class: "form-control", rows: "5"
+          .x_panel
+            .x_title
+              Answers
+            .x_content
+              = question.fields_for :answers do |answer|
+                .col-md-6.col-xs-6.col-sm-6
+                  = answer.label :content, "Content"
+                  = answer.text_field :content, class: "form-control"
+                  .checkbox
+                    %label
+                      = answer.check_box :is_correct, {}, true, false
+                      is correct
+          = question.submit "Create", class: "btn btn-primary"
