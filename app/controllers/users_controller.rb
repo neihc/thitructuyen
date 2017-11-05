@@ -6,12 +6,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
-      #do
+      flash[:success] = "Đăng kí thành công"
+      redirect_to @user
     else
-      redirect_to :new
+      flash[:danger] = "Đăng kí thất bại"
+      redirect_to login_path
     end
   end
 
+  private
+    def user_params
+      params.require(:user).permit(:fullname, :email, :password,
+                                   :password_confirmation)
+    end
 end
