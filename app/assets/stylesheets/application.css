@@ -13,5 +13,10 @@
  *= require_tree .
  *= require_self
  */
-@import "gentelella";
-@import "gentelella-custom";
+@import "gentelella/vendors/bootstrap/dist/css/bootstrap";
+@import "gentelella/vendors/font-awesome/css/font-awesome";
+@import "gentelella/vendors/iCheck/skins/flat/green";
+@import "gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4";
+@import "gentelella/production/css/maps/jquery-jvectormap-2.0.3";
+@import "gentelella/vendors/animate.css/animate.min";
+@import "gentelella/vendors/switchery/dist/switchery.min";
