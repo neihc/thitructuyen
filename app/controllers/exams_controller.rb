@@ -7,11 +7,11 @@ class ExamsController < ApplicationController
 
   def show
     @exam = Exam.find(params[:id])
-#    @questions = @exam.questions.all
+    @questions = @exam.questions.all
     if @exam.present?
-      @user_exam = User_exam.new
-      n = @exam.questions.count
-      n.times{ @user_exam.questions.build }
+      @user_exam = UserExam.new
+      n = @questions.count
+      n.times{ @user_exam.exam_results.build }
     else
       flash[:danger] = "Something went wrong"
       redirect_to exams_path

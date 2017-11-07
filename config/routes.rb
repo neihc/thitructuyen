@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'exams/show'
 
-  root "sessions#new"
+  root "exams#index"
 
   get "/login", to:  "sessions#new"
   post "/login", to: "sessions#create"

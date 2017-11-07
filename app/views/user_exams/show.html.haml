@@ -1,0 +1,23 @@
+.page-title
+  .title_left
+    %h3= @exam.name
+.clearfix
+.row
+  .col-md-12.col-xs-12.col-sm-12
+    - @answers.each_with_index do |ans, index|
+      .x_panel
+        .x_title
+          %b
+            Question
+            = index + 1
+          %b :
+          %span
+            = ans.question.description
+        .x_content
+          .alert{ class: ans.is_correct ? "alert-success" : "alert-danger" }
+            %div
+              %b You answer:
+              = ans.content
+            %div
+              %b Correct answer:
+              = ans.question.answers.find_by(is_correct: true).content

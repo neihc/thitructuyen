@@ -1,27 +1,25 @@
 .page-title
   .title_left
-    %h3= @exam.name 
+    %h3= @exam.name
 .clearfix
 .row
   .col-md-12.col-xs-12.col-sm-12
     = form_for @user_exam, url: user_exams_path do |f|
       = f.hidden_field :exam_id, value: @exam.id
       = f.hidden_field :user_id, value: current_user.id
-      - @exam.questions.each_with_index do |question, index|
-
-          .x_panel
-            .x_title
-              %b
-                Question
-                = index + 1
-              %b :
-              %span
-                = question.description
-            .x_content
-              - question.answers.each_with_index do |answer, ind|
-                .col-md-6.col-sm-6.col-xs-6
-                  .checkbox
-                    %label
-                      %input{ type: "checkbox" }
-                      = answer.content
+      = f.fields_for :exam_results do |ff|
+        .x_panel
+          .x_title
+            %b
+              Question
+              = ff.index + 1
+            %b :
+            %span
+              = @questions[ff.index].description
+          .x_content
+            - @questions[ff.index].answers.each_with_index do |answer, ind|
+              .col-md-6.col-sm-6.col-xs-6
+                .checkbox
+                  = ff.radio_button :answer_id, answer.id
+                  = ff.label :answer_id, answer.content
       = f.submit "Submit", class: "btn btn-primary"

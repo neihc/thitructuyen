@@ -23,8 +23,7 @@
               %td= exam.id
               %td= exam.name
               %td
-                .btn.btn-sm.btn-success
-                  = link_to "Start", exam_path(exam)
+                = link_to "Start", exam_path(exam), class: "btn btn-sm btn-primary"
               %td= exam.created_at
               %td= exam.updated_at
         = will_paginate @exam
