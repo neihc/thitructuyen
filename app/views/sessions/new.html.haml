@@ -39,6 +39,10 @@
           %div
             = f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation"
           %div
+            = f.text_field :phone, class: "form-control", placeholder: "Phone"
+          %div
+            = f.text_field :address, class: "form-control", placeholder: "Address"
+          %div
             = f.submit "Sign Up", class: "btn btn-default submit"
           .clearfix
           .separator
