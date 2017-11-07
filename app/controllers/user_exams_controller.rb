@@ -2,19 +2,31 @@ class UserExamsController < ApplicationController
   before_action :user_must_logged_in
 
   def new
-    exam_id = params[:exam_id].present? ? params[:exam_id] : 0
-    user_id = params[:user_id].present? ? params[:user_id]
-    @exam = Exam.find(exam_id)
-    if @exam.present?
-      @user_exam = User_exam.new
-      n = @exam.questions.count
-      n.times{ @user.questions.build }
+  end
+
+  def create
+    @user_exam = UserExam.new(user_exam_params)
+    if @user_exam.save
+      flash[:success] = "Completed exam!"
+      redirect_to user_exam_path(@user_exam)
     else
-      flash[:danger] = "Something went wrong"
+      flash[:danger] = "Something went wrong!"
       redirect_to exams_path
     end
   end
 
-  def create
+  def show
+    @user_exam = UserExam.find(params[:id])
+    if @user_exam.present?
+      @exam = @user_exam.exam
+      @answers = @user_exam.answers.all
+    else
+      redirect_to exams_path
+    end
   end
+
+  private
+    def user_exam_params
+      params.required(:user_exam).permit(:user_id, :exam_id, exam_results_attributes: [:id, :answer_id])
+    end
 end
