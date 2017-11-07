@@ -1,0 +1,31 @@
+.page-title
+  .title_left
+    %h3 Exams Manager
+
+.clearfix
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        %h4
+          List Exams
+        .clearfix
+      .x_content
+        %table.table.table-striped
+          %tr
+            %th #
+            %th Name
+            %th Action
+            %th Created at
+            %th Updated at
+          - @exams.each do |exam|
+            %tr
+              %td= exam.id
+              %td= exam.name
+              %td
+                .btn.btn-sm.btn-success
+                  = link_to "Start", exam_path(exam)
+              %td= exam.created_at
+              %td= exam.updated_at
+        = will_paginate @exam
+

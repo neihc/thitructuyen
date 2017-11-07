@@ -17,12 +17,12 @@ class Admins::ExamsController < ApplicationController
   end
 
   def index
-    @exams = Exam.paginate(page: params[:page], per_page: 20)
+    @exams = Exam.paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @exam = Exam.find(params[:id])
-    @questions = @exam.questions.paginate(page: params[:page], per_page: 20)
+    @questions = @exam.questions.paginate(page: params[:page], per_page: 10)
     @categories = @exam.categories.all
   end
 

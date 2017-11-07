@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
   layout "session", only: :new
+  before_action :user_must_not_login, only: :new
+  before_action :user_must_logged_in, only: :show
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new

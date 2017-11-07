@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  get 'exams/index'
+
+  get 'exams/show'
+
   root "sessions#new"
 
   get "/login", to:  "sessions#new"
   post "/login", to: "sessions#create"
-  delete "/logout", to: "session#destroy"
+  delete "/logout", to: "sessions#destroy"
 
   resources :users
+  resources :exams
+  resources :user_exams
+  resources :exam_results
 
   get "admin", to: "admins/home#index"
   get "admin/login", to: "admins/sessions#new"

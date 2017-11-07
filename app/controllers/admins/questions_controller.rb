@@ -2,7 +2,7 @@ class Admins::QuestionsController < ApplicationController
   before_action :admin_must_logged_in
 
   def index
-    @questions = Question.paginate(page: params[:page], per_page: 20)
+    @questions = Question.paginate(page: params[:page], per_page: 10)
   end
 
   def new
