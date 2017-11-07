@@ -16,3 +16,8 @@
         .right_col{ role: "main" }
           = yield
   = javascript_include_tag "custom"
+  :javascript
+    setTimeout(function(){
+      $(".flash-messages").remove();
+    }, 5000);
+
