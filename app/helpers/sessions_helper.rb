@@ -29,7 +29,7 @@ module SessionsHelper
   def user_must_not_login
     if logged_in?
       flash[:warning] = "Bạn đã đăng nhập. Vui lòng đăng xuất để tiếp tục"
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 end
