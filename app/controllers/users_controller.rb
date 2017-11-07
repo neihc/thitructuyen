@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Đăng kí thành công"
-      redirect_to @user
+      redirect_to exams_path
     else
       flash[:danger] = "Đăng kí thất bại"
       redirect_to login_path
